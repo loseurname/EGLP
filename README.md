@@ -77,4 +77,4 @@ python tools/test.py path/to/config_file path/to/checkpoint_file --test-set --fo
 ```
 预测可以提交到相应数据集的公共评估服务器以获得测试分数。
 
-#Checkpoint
+# Checkpoint
