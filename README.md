@@ -16,7 +16,7 @@ Nighttime scene parsing faces the challenge of limited labeled night image datas
 </div>
 
 # Setup
-This EGLP (HRDA) code builds upon [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [HRDA](https://github.com/lhoyer/HRDA)构建。We highly recommend that you familiarize yourself with MMSegmentation and HRDA before exploring this code.Additionally, when running the code, it is natural to encounter issues, and referring to the baseline code issues may assist you in resolving them more expeditiously and effectively.
+This EGLP (HRDA) code builds upon [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [HRDA](https://github.com/lhoyer/HRDA)。We highly recommend that you familiarize yourself with MMSegmentation and HRDA before exploring this code.Additionally, when running the code, it is natural to encounter issues, and referring to the baseline code issues may assist you in resolving them more expeditiously and effectively.
 
 We use Python 3.8.16 and recommend setting up a new virtual environment:
 ```bash
