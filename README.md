@@ -8,22 +8,20 @@ Nighttime scene parsing faces the challenge of limited labeled night image datas
 
 <img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/95918d64-34a1-46a2-b69c-a0d5b5dc0d25" />
 
-# 设置
-本项目的 EGLP (HRDA) 代码基于 [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) 和 [HRDA](https://github.com/lhoyer/HRDA)构建。我们强烈建议您在探索此代码之前先熟悉 MMSegmentation 和 HRDA。此外，在运行代码时遇到问题是很正常的，参考基准代码问题可以帮助您更快速、更有效地解决问题。
+# Setup
+This EGLP (HRDA) code builds upon [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) and [HRDA](https://github.com/lhoyer/HRDA)构建。We highly recommend that you familiarize yourself with MMSegmentation and HRDA before exploring this code.Additionally, when running the code, it is natural to encounter issues, and referring to the baseline code issues may assist you in resolving them more expeditiously and effectively.
 
-
-我们使用 Python 3.8.16，并建议设置一个新的虚拟环境：请运行 
+We use Python 3.8.16 and recommend setting up a new virtual environment:
 ```bash
 conda create -n pig python=3.8.16
 conda activate pig
 ```
-在该环境中，可以使用以下命令安装要求：
+In that environment, the requirements can be installed with:
 ```bash
 pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 pip install -U openmim
 mim install mmcv-full==1.3.7
-```
-MiT_b5 的数据集下载及处理请参考 HRDA。NightCity 的数据集下载请参考FDLNet。最终文件夹结构应如下所示：
+Please refer to HRDA for MiT_b5 and data set download and data set processing. Please refer to [FDLNet]([https://github.com/open-mmlab/mmsegmentation](https://github.com/wangsen99/FDLNet)) for NightCity. The final folder structure should look like this:
 ```bash
 EGLP
 ├── ...
@@ -61,17 +59,17 @@ EGLP
 │   │   ├── gt
 │   │   ├── img
 ```
-请注意，代码会根据您选择的提示图像进行适当调整。
-# 训练与测试
-我们以Cityscapes --> NightCity为例，运行进行训练：
+Please note that the code is properly adjusted according to the prompt images you choose.
+# Training & Testing
+Let's take Cityscapes --> NightCity as an example and run it for training:
 ```bash
 python run_experiments.py --config configs/pig/pig_city2nightcity.py
 ```
-Cityscapes --> ACDC 和 Cityscapes --> DarkZurich 的结果在目标数据集的测试集上报告。要生成测试集的预测，请运行：
+The results for Cityscapes --> ACDC and Cityscapes --> DarkZurich are reported on the test split of the target dataset. To generate the predictions for the test set, please run:
 ```bash
 python tools/test.py path/to/config_file path/to/checkpoint_file --test-set --format-only --eval-option imgfile_prefix=labelTrainIds to_label_id=False
 ```
-预测可以提交到相应数据集的公共评估服务器以获得测试分数。
+The predictions can be submitted to the public evaluation server of the respective dataset to obtain the test score.
 
 # Checkpoint
 | Method       | Adaptation                 | mIoU     |Checkpoint|
