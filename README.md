@@ -1,14 +1,10 @@
-# EGLP:高效利用有限的提示图像指导夜间场景语义分割
-#### 作者：liu xi yuan
-# 概述：
+# EGLP:Efficient Guidance with Limited Prompt Images for Nighttime Scene Semantic Segmentation
+#### by Xiyuan Liu, Jinlong Shi, Caisheng Liu, Suqin Bai, Qiang Qian, Ao Zhang
+# Overview：
 
-<img width="650" height="300" alt="image" src="https://github.com/user-attachments/assets/25170f0a-ef6e-4c70-9fa1-867d10afa885" />
+<img width="650" height="300" alt="pipeline" src="https://github.com/user-attachments/assets/ddc3d2ae-6c09-418c-8ea2-db6ae833cd3d" />
 
-夜间场景解析旨在从夜景图像中提取像素级语义信息，这对于理解场景中的物体分布至关重要。然而，由于标注夜间图像数据集的稀缺性，**无监督领域适应（UDA）** 成为研究夜间场景的主要手段。传统的UDA方法依赖于成对的日间和夜间图像对来指导领域适应，但这种方式不仅增加了数据集构建难度，还限制了模型对不同数据集夜间场景的泛化能力。此外，专注于网络架构和训练策略的UDA难以处理域相似性较低的类别。其对动态及小型物体（如车辆和信号灯）的忽视，往往导致预测精度不尽人意。  
-
-我们利用**EGLP方法**即高效利用有限的提示图像来指导夜间场景的语义分割。针对夜间出现极少的稀有类别，我们提出了**稀有类别记忆库模块（RCM）**，旨在通过在标签和图像层面增强动态和小型物体类别，以提升夜间语义分割的性能。提升网络对于动态小目标类别的预测。为了生成高质量的伪标签，我们提出了**针对图像相似性引导的伪标签融合方法（FIS**）。对于图像相似性较低的类别，由专门在夜间图像上训练的NFNet进行预测；而对于领域相似性较高的类别，则由具有丰富标注语义的UDA进行预测。此外，针对少提示图像我们提出了一种伪标签混合策略：**动态混合策略（AMS）**，旨在通过动态混合伪标签来缓解过拟合问题。  
-
-我们在四个夜间数据集上进行了广泛的实验：NightCity、NightCity+、Dark Zurich和ACDC。实验结果表明，使用EGLP可以提升UDA的解析准确性。
+Nighttime scene parsing faces the challenge of limited labeled night image datasets, making unsupervised domain adaptation (UDA) the predominant method in this field. Traditional UDA methods rely on paired day-night images to guide domain adaptation, which increases the difficulty of data acquisition and limits adaptation generalization across different nighttime datasets. UDA methods assisted by a limited number of prompt images can alleviate this issue. However, the limited prompt images often lead to highly redundant pseudo-labels. Moreover, UDA methods that focus on network architecture and training strategies struggle to handle classes with low domain similarity and tend to neglect dynamic and small-scale objects, such as vehicles and traffic lights, resulting in suboptimal parsing accuracy. To address these challenges, we propose \textbf{Efficient Guidance with Limited Prompt Images for nighttime Scene semantic segmentation (EGLP)}. We design a Rare Class Memory (RCM) module that enhances rare classes at both the label and image levels to improve segmentation performance. Furthermore, we propose the Fusion of Pseudo-labels via Image Similarity (FIS) method, which employs a Day-Night Image Similarity (DNIS) function to compute class-wise similarity between source and target domains. Classes with lower similarity are predicted by a Night-Focused Network (NFNet) trained specifically on night images, while classes with higher similarity are predicted by UDA with rich semantic supervision. A Dynamic Mixing Strategy (DMS) further integrates predictions based on DNIS scores and utilizes limited prompt images to generate high-quality pseudo-labels. We conduct extensive experiments on four nighttime datasets: NightCity, NightCity+, Dark Zurich, and ACDC. The results indicate that EGLP can improve the parsing accuracy of UDA.
 
 <img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/95918d64-34a1-46a2-b69c-a0d5b5dc0d25" />
 
@@ -78,3 +74,7 @@ python tools/test.py path/to/config_file path/to/checkpoint_file --test-set --fo
 预测可以提交到相应数据集的公共评估服务器以获得测试分数。
 
 # Checkpoint
+| Method       | Adaptation                 | mIoU     |Checkpoint|
+|:-------------|:--------------------------:|---------:|---------:|
+| EGLP(HRADA)  | Cityscapes --> ACDC        | 61.54    |  |
+
