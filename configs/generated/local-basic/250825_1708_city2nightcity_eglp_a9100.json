@@ -1,0 +1,6 @@
+{
+    "_base_": "../../eglp/eglp_city2nightcity.py",
+    "name": "250825_1708_city2nightcity_eglp_a9100",
+    "work_dir": "work_dirs/local-basic/250825_1708_city2nightcity_eglp_a9100",
+    "git_rev": ""
+}
