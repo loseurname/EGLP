@@ -79,7 +79,7 @@ python tools/test.py path/to/config_file path/to/checkpoint_file --test-set --fo
 The predictions can be submitted to the public evaluation server of the respective dataset to obtain the test score.
 
 # Checkpoint
-| Method       | Adaptation                 | mIoU     |Checkpoint|
-|:-------------|:--------------------------:|---------:|---------:|
-| EGLP(HRADA)  | Cityscapes --> ACDC        | 61.54    |  |
+| Method       | Adaptation                 | mIoU     |Checkpoint                                                  |
+|:-------------|:--------------------------:|---------:|-----------------------------------------------------------:|
+| EGLP(HRADA)  | Cityscapes --> ACDC        | 61.54    | [Google Drive checkpoint](https://drive.google.com/xxxx)   |
 
