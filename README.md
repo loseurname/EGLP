@@ -28,7 +28,11 @@ In that environment, the requirements can be installed with:
 pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 pip install -U openmim
 mim install mmcv-full==1.3.7
-Please refer to HRDA for MiT_b5 and data set download and data set processing. Please refer to [FDLNet]([https://github.com/open-mmlab/mmsegmentation](https://github.com/wangsen99/FDLNet)) for NightCity. The final folder structure should look like this:
+```
+Please refer to HRDA for MiT_b5, dataset download, and dataset preprocessing.  For the NightCity dataset, please refer to [FDLNet](https://github.com/wangsen99/FDLNet). The final folder structure should look like this:
+
+The final folder structure should look like this:
+
 ```bash
 EGLP
 ├── ...
@@ -81,5 +85,5 @@ The predictions can be submitted to the public evaluation server of the respecti
 # Checkpoint
 | Method       | Adaptation                 | mIoU     |Checkpoint                                                  |
 |:-------------|:--------------------------:|---------:|-----------------------------------------------------------:|
-| EGLP(HRADA)  | Cityscapes --> ACDC        | 61.54    | [Google Drive checkpoint](https://drive.google.com/xxxx)   |
+| EGLP(HRADA)  | Cityscapes --> ACDC        | 61.54    | [Checkpoint](https://drive.google.com/file/d/1l6tAa2PM-diO_0JWc8xx45HpxHHoKVHI/view?usp=drive_link)   |
 
