@@ -20,8 +20,8 @@ This EGLP (HRDA) code builds upon [MMSegmentation](https://github.com/open-mmlab
 
 We use Python 3.8.16 and recommend setting up a new virtual environment:
 ```bash
-conda create -n pig python=3.8.16
-conda activate pig
+conda create -n eglp python=3.8.16
+conda activate eglp
 ```
 In that environment, the requirements can be installed with:
 ```bash
@@ -29,7 +29,7 @@ pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable
 pip install -U openmim
 mim install mmcv-full==1.3.7
 ```
-Please refer to HRDA for MiT_b5, dataset download, and dataset preprocessing.  For the NightCity dataset, please refer to [FDLNet](https://github.com/wangsen99/FDLNet). The final folder structure should look like this:
+Please refer to HRDA for MiT_b5, dataset download, and dataset preprocessing. For the NightCity dataset, please refer to [FDLNet](https://github.com/wangsen99/FDLNet). The final folder structure should look like this:
 
 The final folder structure should look like this:
 
@@ -74,7 +74,7 @@ Please note that the code is properly adjusted according to the prompt images yo
 # Training & Testing
 Let's take Cityscapes --> NightCity as an example and run it for training:
 ```bash
-python run_experiments.py --config configs/pig/pig_city2nightcity.py
+python run_experiments.py --config configs/eglp/eglp_city2nightcity.py
 ```
 The results for Cityscapes --> ACDC and Cityscapes --> DarkZurich are reported on the test split of the target dataset. To generate the predictions for the test set, please run:
 ```bash
